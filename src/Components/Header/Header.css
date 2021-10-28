@@ -1,0 +1,14 @@
+.header-main{
+    margin-top: 10px;
+}
+.header-main nav a{
+    text-decoration: none;
+    margin-right: 20px;
+    color: black;
+    padding: 0 5px;
+    
+}
+.header-main nav a:hover{
+    background-color: lightblue;
+    color: black;
+}

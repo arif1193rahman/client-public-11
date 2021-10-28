@@ -1,0 +1,45 @@
+[
+    {
+    "id": 5345634,
+    "img": "https://i.ibb.co/sg9sRS9/young-attractive-female-dentist-treating-male-patient-her-office-181624-50871.jpg",
+    "name": "Restorative clinic",
+    "details": " Cleanings, Complete Dental Exam, Digital X-Rays, Oral Cancer Screening."
+    },
+    {
+    "id": 754972,
+    "img": "https://i.ibb.co/8bNvDT0/beautiful-girl-dentist-1157-18577.jpg",
+    "name": "general dentistry",
+    "details": " Invisalign, Lumineers (Porcelain Veneers), Smile Makeovers, Zoom Teeth Whitening.",
+    "Experience": 10,
+    "clinic": "London"
+    },
+    {
+    "id": 9847213,
+    "img": "https://i.ibb.co/SV38D8q/female-dentist-with-dentistry-tools-isolated-1303-13204.jpg",
+    "name": "Cosmetic dentistry",
+    "details": "Bridges, CEREC Restorations, Crowns, Dentures, Extractions, Dental Implants, Tooth Colored Fillings, Root Canal.",
+    "Experience": 10,
+    "clinic": "Dhaka"
+    },
+    {
+    "id": 76523465,
+    "img": "https://i.ibb.co/gw7nMTj/happy-young-woman-smiling-23-2148396164.jpg",
+    "name": "Restorative Cardiac clinic DENTISTRY",
+    "details": "Bridges, CEREC Restorations, Crowns, Dentures, Extractions, Dental Implants, Tooth Colored Fillings, Root Canal.",
+    "clinic": "Mohammadpur"
+    },
+    {
+    "id": 237863,
+    "img": "https://i.ibb.co/hL2LzVX/healthy-white-tooth-dentist-mirror-dental-clinic-136401-2526.jpg",
+    "name": "Ambulance Service",
+    "details": "Any time any where in Bangladesh",
+    "clinic": "Dental Hospital"
+    },
+    {
+    "id": 12354312,
+    "img": "https://i.ibb.co/NKcfnVr/30b6337f-6077-422f-980e-2358c60f42bc-cover-page-big-1.jpg",
+    "name": "Precise Diagnosis",
+    "details": "Precision diagnosis is the accurate and timely explanation of each patient's health problem",
+    "clinic": "Diagnosis"
+    }
+    ]
