@@ -11,14 +11,17 @@ initializeAuthentication();
 
 const LogIn = () => {
     const [user, setUser] = useState({});
+    const [isLoading, setLoading] = useState(true);
     const auth = getAuth();
 
     const handleGoogleSignIn = ()=>{
+        setLoading(true);
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
         .then(result =>{
            setUser(result.user);
-        });
+        })
+        .finally(()=>setLoading(false));
     }
 
     // Observer
@@ -30,13 +33,16 @@ const LogIn = () => {
                 else{
                     setUser({})
                 }
+                setLoading(false);
             });
             return ()=>unsubscribed;
         },[])
 
         const logOut = ()=>{
+            setLoading(false)
             signOut(auth)
-                .then(() =>{ });
+                .then(() =>{ })
+                .finally(()=>setLoading(false));
         }
 
     

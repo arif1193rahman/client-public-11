@@ -9,10 +9,10 @@ import {
 import Home from './Components/Home/Home';
 import OurServices from './Components/OurServices/OurServices';
 import Header from './Components/Header/Header';
-// import LogIn from './Components/LogIn/LogIn';
 import Booking from './Components/Booking/Booking';
 import AuthProvider from './Context/AuthProvider';
 import SignIn from './Components/LogIn/SignIn/SignIn';
+import PrivateRoute from './Components/LogIn/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -33,9 +33,9 @@ function App() {
           <Route path="/signIn">
           <SignIn></SignIn>
           </Route>
-          <Route path= "/booking/:placeOrderId">
+          <PrivateRoute path= "/booking/:placeOrderId">
             <Booking></Booking>
-          </Route>
+          </PrivateRoute>
 
         </Switch>
       </Router>
