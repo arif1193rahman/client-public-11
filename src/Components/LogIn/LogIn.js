@@ -1,27 +1,50 @@
-import React from 'react';
-import {getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {getAuth, signInWithPopup, GoogleAuthProvider,signOut,onAuthStateChanged  } from "firebase/auth";
+import { useEffect } from "react";
 import initializeAuthentication from '../../Firebase/firebase.init';
+import {useState} from 'react';
 
 
 initializeAuthentication();
 
-const provider = new GoogleAuthProvider();
+
+
 
 const LogIn = () => {
+    const [user, setUser] = useState({});
+    const auth = getAuth();
 
     const handleGoogleSignIn = ()=>{
-        const auth = getAuth();
+        const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
         .then(result =>{
-            const user = result.user;
-            console.log(user);
-        })
+           setUser(result.user);
+        });
     }
-    return (
-        <div>
-            <button onClick={handleGoogleSignIn}>Google Lig In</button>
-        </div>
-    );
-};
 
+    // Observer
+        useEffect(()=>{
+            const unsubscribed = onAuthStateChanged(auth, user =>{
+                if(user){
+                    setUser(user);
+                }
+                else{
+                    setUser({})
+                }
+            });
+            return ()=>unsubscribed;
+        },[])
+
+        const logOut = ()=>{
+            signOut(auth)
+                .then(() =>{ });
+        }
+
+    
+    return {
+        user,
+        handleGoogleSignIn,
+        logOut
+        
+    }
+}
 export default LogIn;

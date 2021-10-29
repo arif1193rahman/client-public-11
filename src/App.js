@@ -9,13 +9,16 @@ import {
 import Home from './Components/Home/Home';
 import OurServices from './Components/OurServices/OurServices';
 import Header from './Components/Header/Header';
-import LogIn from './Components/LogIn/LogIn';
+// import LogIn from './Components/LogIn/LogIn';
 import Booking from './Components/Booking/Booking';
+import AuthProvider from './Context/AuthProvider';
+import SignIn from './Components/LogIn/SignIn/SignIn';
 
 function App() {
   return (
     <div className="App">
-      <Router>
+     <AuthProvider>
+     <Router>
         <Header></Header>
         <Switch>
           <Route exact path="/">
@@ -27,8 +30,8 @@ function App() {
           <Route path="/ourServices">
             <OurServices></OurServices>
           </Route>
-          <Route path="/login">
-          <LogIn></LogIn>
+          <Route path="/signIn">
+          <SignIn></SignIn>
           </Route>
           <Route path= "/booking/:placeOrderId">
             <Booking></Booking>
@@ -36,6 +39,7 @@ function App() {
 
         </Switch>
       </Router>
+     </AuthProvider>
     </div>
   );
 }
