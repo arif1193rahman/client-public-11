@@ -49,7 +49,8 @@ const LogIn = () => {
     return {
         user,
         handleGoogleSignIn,
-        logOut
+        logOut,
+        isLoading
         
     }
 }
