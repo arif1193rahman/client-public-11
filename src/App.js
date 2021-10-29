@@ -10,6 +10,7 @@ import Home from './Components/Home/Home';
 import OurServices from './Components/OurServices/OurServices';
 import Header from './Components/Header/Header';
 import LogIn from './Components/LogIn/LogIn';
+import Booking from './Components/Booking/Booking';
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
           <Route path="/login">
           <LogIn></LogIn>
           </Route>
+          <Route path= "/booking/:placeOrderId">
+            <Booking></Booking>
+          </Route>
+
         </Switch>
       </Router>
     </div>

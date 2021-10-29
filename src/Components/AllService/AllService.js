@@ -9,7 +9,7 @@ const AllService = ({service}) => {
                     <h3>{name}</h3>
                     <p>{details}</p>
                     <p>{clinic}</p>
-                    <Link to={`/details/${id}`}>
+                    <Link to={`/booking/${id}`}>
                 <button className="btn btn-warning">Check</button>
             </Link>
             </div>

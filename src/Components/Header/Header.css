@@ -1,14 +1,13 @@
-.header-main{
-    margin-top: 10px;
+.nav-text {
+    font-weight: 700;
 }
-.header-main nav a{
+
+.main-text {
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.display-name {
     text-decoration: none;
-    margin-right: 20px;
-    color: black;
-    padding: 0 5px;
-    
-}
-.header-main nav a:hover{
-    background-color: lightblue;
-    color: black;
 }
