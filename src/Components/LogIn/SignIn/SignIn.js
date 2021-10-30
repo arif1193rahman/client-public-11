@@ -5,7 +5,7 @@ const SignIn = () => {
     const {handleGoogleSignIn} = useAuth();
     return (
         <div className="mt-3">
-            <button onClick={handleGoogleSignIn} className="btn btn-success">Google Lig In</button>
+            <button onClick={handleGoogleSignIn} className="btn btn-success">Google Log In</button>
         </div>
     );
 };
