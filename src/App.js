@@ -14,6 +14,7 @@ import AuthProvider from './Context/AuthProvider';
 import SignIn from './Components/LogIn/SignIn/SignIn';
 import PrivateRoute from './Components/LogIn/PrivateRoute/PrivateRoute';
 import Footer from './Components/Footer/Footer';
+import AddEvents from './Components/AddEvents/AddEvents';
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/signIn">
           <SignIn></SignIn>
+          </Route>
+          <Route exact path="/addEvents">
+            <AddEvents></AddEvents>
           </Route>
           <PrivateRoute path= "/booking/:placeOrderId">
             <Booking></Booking>
