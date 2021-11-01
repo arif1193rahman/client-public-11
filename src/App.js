@@ -11,11 +11,12 @@ import OurServices from './Components/OurServices/OurServices';
 import Header from './Components/Header/Header';
 import Booking from './Components/Booking/Booking';
 import AuthProvider from './Context/AuthProvider';
-import SignIn from './Components/LogIn/SignIn/SignIn';
+// import SignIn from './Components/LogIn/SignIn/SignIn';
 import PrivateRoute from './Components/LogIn/PrivateRoute/PrivateRoute';
 import Footer from './Components/Footer/Footer';
 import AddEvents from './Components/AddEvents/AddEvents';
 import LogIn from './Components/LogIn/LogIn';
+import OrderDetails from './Components/MyOrder/OrderDetails/OrderDetails';
 
 function App() {
   return (
@@ -37,10 +38,15 @@ function App() {
           <Route path="/signIn">
           <LogIn></LogIn>
           </Route>
-          <Route exact path="/addEvents">
+          {/* <Route exact path="/addEvents">
             <AddEvents></AddEvents>
+          </Route> */}
+          <Route path="/orderDetails">
+            <OrderDetails></OrderDetails>
           </Route>
-          <PrivateRoute path= "/booking/:placeOrderId">
+
+          
+          <PrivateRoute exact path= "/booking/:placeOrderId">
             <Booking></Booking>
           </PrivateRoute>
 

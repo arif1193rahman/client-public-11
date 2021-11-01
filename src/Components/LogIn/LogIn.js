@@ -3,26 +3,24 @@ import useAuth from "./Hooks/useAuth";
 import { useHistory, useLocation } from "react-router-dom";
 
 const LogIn = () => {
-  const { signInWithGoogle, setUser, logOut, setLoading,onAuthStateChanged } = useAuth();
+  const { signInWithGoogle, setUser,  setLoading } = useAuth();
 
   const history = useHistory();
   const location = useLocation();
 
-  const url = location.state?.from || "/home";
+  const url = location.state?.from || "/"
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((res) => {
-        setUser(res.user);
-        history.push(url);
+        setUser(res.user)
+        history.push(url)
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   };
 
-  //   const handleGoogleOut =()=>{
-  //       logOut()
-  //   }
+  
   return (
     <div>
       <div className="mt-3">

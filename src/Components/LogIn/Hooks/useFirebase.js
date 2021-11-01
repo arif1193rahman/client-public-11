@@ -22,7 +22,7 @@ const useFirebase = () => {
   const provider = new GoogleAuthProvider();
 
   const signInWithGoogle = () => {
-    return signInWithPopup(auth, provider);
+    return signInWithPopup(auth, provider)
   };
 
   useEffect(()=>{
@@ -42,8 +42,11 @@ const useFirebase = () => {
   const logOut = ()=>{
                   setLoading(false)
                signOut(auth)
-                     .then(() =>{ })
-                      .finally(()=>setLoading(false));
+                     .then(() =>{ 
+                        setUser({})
+                     })
+                     
+                      .finally(()=>setLoading(false))
             }
 
   return {
