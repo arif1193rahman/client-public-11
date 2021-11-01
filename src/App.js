@@ -15,6 +15,7 @@ import SignIn from './Components/LogIn/SignIn/SignIn';
 import PrivateRoute from './Components/LogIn/PrivateRoute/PrivateRoute';
 import Footer from './Components/Footer/Footer';
 import AddEvents from './Components/AddEvents/AddEvents';
+import LogIn from './Components/LogIn/LogIn';
 
 function App() {
   return (
@@ -32,8 +33,9 @@ function App() {
           <Route path="/ourServices">
             <OurServices></OurServices>
           </Route>
+
           <Route path="/signIn">
-          <SignIn></SignIn>
+          <LogIn></LogIn>
           </Route>
           <Route exact path="/addEvents">
             <AddEvents></AddEvents>

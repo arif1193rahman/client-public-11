@@ -13,7 +13,7 @@ const AddEvents = () => {
 
   //   add New data
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addEvents", {
+    fetch("https://scary-goblin-02267.herokuapp.com/addEvents", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
