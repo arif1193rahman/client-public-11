@@ -21,7 +21,7 @@ const Booking = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("https://scary-goblin-02267.herokuapp.com//booking", data)
+    axios.post("https://scary-goblin-02267.herokuapp.com/booking", data)
     .then((res) => {
       if (res.data.insertedId) {
         alert("Yehhh , You are added");
