@@ -4,7 +4,7 @@ import OrderDetails from "./OrderDetails/OrderDetails";
 const MyOrders = () => {
   const [bookings, setBookings] = useState({});
   useEffect(() => {
-    fetch("http://localhost:5000/booking")
+    fetch("https://scary-goblin-02267.herokuapp.com/booking")
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, []);

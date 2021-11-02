@@ -21,7 +21,7 @@ const Booking = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("http://localhost:5000/booking", data)
+    axios.post("https://scary-goblin-02267.herokuapp.com//booking", data)
     .then((res) => {
       if (res.data.insertedId) {
         alert("Yehhh , You are added");
@@ -31,7 +31,7 @@ const Booking = () => {
   };
 
   useEffect(() => {
-    fetch("/singleBooking.json")
+    fetch("/https://scary-goblin-02267.herokuapp.com/booking")
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, []);
