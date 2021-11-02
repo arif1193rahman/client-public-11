@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import OrderDetails from "./OrderDetails/OrderDetails";
 
 const MyOrders = () => {
-  const [bookings, setBookings] = useState();
+  const [bookings, setBookings] = useState({});
   useEffect(() => {
     fetch("http://localhost:5000/booking")
       .then((res) => res.json())

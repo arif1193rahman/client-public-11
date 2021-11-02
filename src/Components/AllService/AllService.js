@@ -6,7 +6,7 @@ const AllService = ({ service }) => {
   const { name, details, _id,img, price} = service;
   return (
     <div className="col-lg-6 image">
-      <h3>{name}</h3>
+      <h3 className="service-name">{name}</h3>
       <p>{details}</p>
       <p>Price: ${price}</p>
       <img src={img} alt="" />

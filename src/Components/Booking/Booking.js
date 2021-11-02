@@ -19,38 +19,16 @@ const Booking = () => {
 
   // Address manu
 
-  const onSubmit = data => {
-      console.log(data)
-    axios.post('http://localhost:5000/booking',data)
-    .then(res=>{
-        if(res.data.insertedId){
-            alert('Yehhh , You are added')
-            reset();
-        }
-       
-    })
-    };
-
-
-
-
-
-
-
-
-
-
-
-//   const onSubmit = (data) => {
-//     fetch("https://scary-goblin-02267.herokuapp.com/addEvents", {
-//       method: "POST",
-//       headers: { "content-type": "application/json" },
-//       body: JSON.stringify(data),
-//     })
-//       .then((res) => res.json())
-//       .then((result) => console.log(result));
-//     console.log(data);
-//   };
+  const onSubmit = (data) => {
+    console.log(data);
+    axios.post("http://localhost:5000/booking", data)
+    .then((res) => {
+      if (res.data.insertedId) {
+        alert("Yehhh , You are added");
+        reset();
+      }
+    });
+  };
 
   useEffect(() => {
     fetch("/singleBooking.json")
@@ -68,57 +46,39 @@ const Booking = () => {
   return (
     <div className="row container p-5">
       <div className="col-lg-6 col-sm-12">
-        <h2>This is Order {placeOrderId}</h2>
-        <p>{singleBooking?.name}</p>
-        <p>{singleBooking?.details}</p>
+        <h2>Confirm Your Order...</h2>
+        {/* <p>{placeOrderId?.name}</p> */}
+        {/* <p>{singleBooking?.details}</p>  */}
       </div>
       <div className="col-lg-6 col-sm-12">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             className="p-2 m-2"
-            defaultValue="test"
             placeholder="Name"
-            {...register("example")}
+            {...register("Name")}
           />
-          {/* <input
-                    type="text"
+          <input
+                    type="number"
                     className="p-2 m-2"
-                    defaultValue="Name"
-                    {...register("userName", { required: true })} */}
-          {/* /> */}
-          {/* <br />
-                  <input
-                    type="email"
-                    className="p-2 m-2"
-                    // defaultValue={user.email}
-                    {...register("userEmail", { required: true })}
-                  />
-                  <br /> */}
-          {/* <input
-                    type="text"
-                    className="p-2 m-2"
-                    // defaultValue={}
-                    {...register("destinationName", { required: true })}
-                  />
-                  <br /> */}
+                    // defaultValue="+880"
+                     placeholder="+880"
+                    {...register("Contract-Number", { required: true })}
+          /> 
+
+          <input
+            type="number"
+            className="p-2 m-2"
+            // defaultValue="price"
+            placeholder="Price"
+            {...register("price", { required: true })}
+          />
+          <br />
 
           <input
             type="text"
             className="p-2 m-2"
-            defaultValue="Address"
-            {...register("price", { required: true })}
-          />
-          <br />
-          {/* <input
-                    className="p-2 m-2"
-                    placeholder="Address"
-                    // {...register("address", { required: true })}
-                  />
-                  <br /> */}
-          <input
-            className="p-2 m-2"
             placeholder="City"
-            {...register("city", { required: true })}
+            {...register("City", { required: true })}
           />
           <br />
 

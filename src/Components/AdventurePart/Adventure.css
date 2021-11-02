@@ -1,0 +1,24 @@
+.adventure-main span{
+    color: rgb(224, 84, 102);
+}
+.adventure-main{
+    border-style: dotted solid double dashed;
+}
+.adventure{
+    padding: 15px;
+
+}
+.adventure-first img{
+width: 100%;
+}
+.adventure-second-head{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+.adventure-second-head span{
+    color: rgb(117, 166, 209);
+
+}
+.adventure-text{
+    font-family: 'Courier New', Courier, monospace;
+}

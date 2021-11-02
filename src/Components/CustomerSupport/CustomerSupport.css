@@ -1,0 +1,25 @@
+.customer-head{
+    text-decoration:underline;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.customer-head span{
+    color: rgb(145, 182, 149);
+    font-weight: 700;
+    font-size: xx-large;
+}
+.customer-section{
+    border: 2px solid goldenrod;
+    padding: 50px;
+}
+.customer-image{
+    display:flex;
+    /* grid-template-columns: repeat(1fr,3 ); */
+}
+.customer-image img{
+    width: 100px;
+    margin: 2px;
+    border-radius: 60px;
+}
+.customer-first{
+    font-family: 'Courier New', Courier, monospace;
+}

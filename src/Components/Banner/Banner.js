@@ -10,8 +10,8 @@ const Banner = () => {
         
       </div>
       <div className="hero-text">
-          <h1 style={{ fontSize: "50px" }}>I am John Doe</h1>
-          <p>And I'm a Your Guid</p>
+          <h1 className="banner-text" style={{ fontSize: "50px" }}>I am John Doe</h1>
+          <p className="banner-second">And I'm a Your Guid</p>
         </div>
     </div>
   );

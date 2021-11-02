@@ -4,4 +4,8 @@
 .image{
     border: 1px solid green;
     margin-bottom: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.service-name{
+    font-weight: 700;
 }

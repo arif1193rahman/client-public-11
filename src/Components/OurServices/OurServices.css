@@ -1,3 +1,11 @@
 .total-card{
     margin: 5px;
 }
+customer-head span{
+    color: rgb(145, 182, 149);
+    font-weight: 700;
+    font-size: xx-large;
+}
+customer-head{
+    /* font-family:'Courier New', Courier, monospace; */
+}
