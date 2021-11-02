@@ -46,7 +46,7 @@ const Footer = () => {
                         </div>
                         <div className="col-md-5">
                             <div className="left-container text-start">
-                                <h1>Best Dental Clinic</h1>
+                                <h1>Tourist Guid</h1>
                                 <div className="icons-container d-flex text-center ">
                                     <div className="icon">
                                         <FontAwesomeIcon icon={faInstagramSquare} />

@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import AllService from '../AllService/AllService';
+import './OurServices.css'
 
 const OurServices = () => {
     const [services, setServices] = useState([]);
@@ -12,9 +13,9 @@ const OurServices = () => {
         .then(data=>setServices(data))
     },[])
     return (
-        <div>
-            <h2>this is our service {services.length}</h2>
-            <div className="row">
+        <div className="total-card mt-5">
+            <h2>This is our service</h2>
+            <div className="row m-4">
                     {
                         services.map(service=><AllService 
                             service={service}
