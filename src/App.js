@@ -8,10 +8,12 @@ import Booking from "./Components/Booking/Booking";
 import AuthProvider from "./Context/AuthProvider";
 import PrivateRoute from "./Components/LogIn/PrivateRoute/PrivateRoute";
 import Footer from "./Components/Footer/Footer";
-import AddEvents from "./Components/AddEvents/AddEvents";
 import LogIn from "./Components/LogIn/LogIn";
 import OrderDetails from "./Components/MyOrder/OrderDetails/OrderDetails";
 import NotFound from "./Components/NotFound/NotFound";
+import MyOrders from "./Components/MyOrder/MyOrders";
+import ManageAllOrders from "./Components/ManageAllOrders/ManageAllOrders";
+import AddAllServices from "./Components/AddAllServices/AddAllServices";
 
 function App() {
   return (
@@ -36,6 +38,15 @@ function App() {
             <PrivateRoute path="/orderDetails">
               <OrderDetails></OrderDetails>
             </PrivateRoute>
+            <Route exact path="/myOrders">
+              <MyOrders></MyOrders>
+            </Route>
+            <Route exact path="/manageOrder">
+              <ManageAllOrders></ManageAllOrders>
+            </Route>
+            <Route exact path="/addNewService">
+              <AddAllServices></AddAllServices>
+            </Route>
 
             <PrivateRoute exact path="/booking/:placeOrderId">
               <Booking></Booking>

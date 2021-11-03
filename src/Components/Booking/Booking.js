@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useFirebase from "../LogIn/Hooks/useFirebase";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import useAuth from '../LogIn/Hooks/useAuth';
+import useAuth from "../LogIn/Hooks/useAuth";
+import './Booking.css';
 
 const Booking = () => {
-  const {user} = useAuth();
-  const { setUser, setSave } = useFirebase();
+  const { user } = useAuth();
   const { placeOrderId } = useParams();
-  const [booking, setBooking] = useState([]);
-  const [singleBooking, setSingleBooking] = useState([]);
+  const [saveUser, setSaveUser] = useState([]);
 
   console.log(user);
   const {
@@ -23,72 +20,77 @@ const Booking = () => {
   // Address manu
 
   const onSubmit = (data) => {
-    console.log(data);
-    axios.post(`https://scary-goblin-02267.herokuapp.com/booking`, data)
-    .then((res) => {
-      if (res.data.insertedId) {
-        alert("Yehhh , You are added");
-        reset();
-      }
-    });
-  };
+    // data.name=saveUser?.name;
+    // data.price= saveUser.price;
+    fetch(`https://scary-goblin-02267.herokuapp.com/booking`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    })
+    .then((res) => res.json())
+    .then((result)=>{
+      // console.log("sub,it" ,result);
+      if (result.insertedId) {
+        
+        alert("Yehhh , You are added")
+        reset()
+      }});
+        
+    
+    };
 
+   
+// set Details
   useEffect(() => {
     fetch(`https://scary-goblin-02267.herokuapp.com/services/${placeOrderId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        // const detailsBooking = data?.find(
-        //   (booking) => booking.id == placeOrderId
-        // );
-        // setSingleBooking(detailsBooking);
-        console.log(data);
-      });
-  }, [placeOrderId]);
+    .then(res=>res.json())
+    .then(data=>setSaveUser(data))
+  },[placeOrderId])
 
-  // useEffect(() => {
-  //   const detailsBooking = booking?.find(
-  //     (booking) => booking.id == placeOrderId
-  //   );
-  //   setSingleBooking(detailsBooking);
-  // }, [booking]);
-
+ 
   return (
     <div className="row container p-5">
       <div className="col-lg-6 col-sm-12">
         <h2>Confirm Your Order...</h2>
-        {/* <p>{placeOrderId?.name}</p> */}
-        {/* <p>{singleBooking?.details}</p>  */}
+        <h1>To</h1>
+        <p className="booking-section"><u>{saveUser?.name}</u></p>
+        <p>{saveUser?.details}</p> 
       </div>
       <div className="col-lg-6 col-sm-12">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             className="p-2 m-2"
-            placeholder="Name"
-            defaultValue= {user.displayName}
+            // placeholder="Name"
+            defaultValue={user?.displayName}
             {...register("Name")}
           />
           <input
-                    type="number"
-                    className="p-2 m-2"
-                    // defaultValue="+880"
-                     placeholder="+880"
-                    {...register("Contract-Number", { required: true })}
-          /> 
+            className="p-2 m-2"
+            // placeholder="Name"
+            defaultValue={user?.email}
+            {...register("email")}
+          />
+          <input
+            type="text"
+            className="p-2 m-2"
+            defaultValue={saveUser?.name}
+            // placeholder="+880"
+            {...register("name")}
+          />
 
           <input
             type="number"
             className="p-2 m-2"
-            // defaultValue="price"
-            placeholder="Price"
-            {...register("price", { required: true })}
+            defaultValue={saveUser.price}
+            {...register("price")}
           />
           <br />
 
           <input
             type="text"
             className="p-2 m-2"
-            placeholder="City"
-            {...register("City", { required: true })}
+            placeholder="Your City"
+            {...register("city", { required: true })}
           />
           <br />
 

@@ -12,7 +12,6 @@ initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  const [save, setSave] = useState();
   const [isLoading, setLoading] = useState(true);
 
   const auth = getAuth();
@@ -48,8 +47,6 @@ const useFirebase = () => {
   return {
     user,
     setUser,
-    save,
-    setSave,
     signInWithGoogle,
     logOut,
     isLoading,

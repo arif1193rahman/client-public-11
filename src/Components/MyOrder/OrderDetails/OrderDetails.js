@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OrderDetails = ({booking}) => {
+const OrderDetails = () => {
     // const {  name, address, city} = booking;
     return (
         <div>
