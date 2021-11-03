@@ -3,13 +3,16 @@ import { useParams } from "react-router-dom";
 import useFirebase from "../LogIn/Hooks/useFirebase";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import useAuth from '../LogIn/Hooks/useAuth';
 
 const Booking = () => {
-  const { user } = useFirebase();
+  const {user} = useAuth();
+  const { setUser, setSave } = useFirebase();
   const { placeOrderId } = useParams();
   const [booking, setBooking] = useState([]);
   const [singleBooking, setSingleBooking] = useState([]);
 
+  console.log(user);
   const {
     register,
     handleSubmit,
@@ -21,7 +24,7 @@ const Booking = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("https://scary-goblin-02267.herokuapp.com/booking", data)
+    axios.post(`https://scary-goblin-02267.herokuapp.com/booking`, data)
     .then((res) => {
       if (res.data.insertedId) {
         alert("Yehhh , You are added");
@@ -31,17 +34,23 @@ const Booking = () => {
   };
 
   useEffect(() => {
-    fetch("/https://scary-goblin-02267.herokuapp.com/booking")
+    fetch(`https://scary-goblin-02267.herokuapp.com/services/${placeOrderId}`)
       .then((res) => res.json())
-      .then((data) => setBooking(data));
-  }, []);
+      .then((data) => {
+        // const detailsBooking = data?.find(
+        //   (booking) => booking.id == placeOrderId
+        // );
+        // setSingleBooking(detailsBooking);
+        console.log(data);
+      });
+  }, [placeOrderId]);
 
-  useEffect(() => {
-    const detailsBooking = booking?.find(
-      (booking) => booking.id == placeOrderId
-    );
-    setSingleBooking(detailsBooking);
-  }, [booking]);
+  // useEffect(() => {
+  //   const detailsBooking = booking?.find(
+  //     (booking) => booking.id == placeOrderId
+  //   );
+  //   setSingleBooking(detailsBooking);
+  // }, [booking]);
 
   return (
     <div className="row container p-5">
@@ -55,6 +64,7 @@ const Booking = () => {
           <input
             className="p-2 m-2"
             placeholder="Name"
+            defaultValue= {user.displayName}
             {...register("Name")}
           />
           <input
