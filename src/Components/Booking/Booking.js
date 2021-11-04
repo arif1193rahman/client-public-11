@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import "./Booking.css";
+import './Booking.css';
 import useAuth from "../LogIn/Hooks/useAuth";
-import Swal from "sweetalert2";
 
 const Booking = () => {
   const { user } = useAuth();
@@ -26,34 +25,35 @@ const Booking = () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })
-      .then((res) => res.json())
-      .then((result) => {
-        // console.log("sub,it" ,result);
-        if (result.insertedId) {
-          Swal.fire("Good job!", "Your Booking has been added!");
-        } else {
-          alert("Try again");
-        }
-      });
-    reset();
-  };
+    .then((res) => res.json())
+    .then((result)=>{
+      console.log("sub,it" ,result);
+      if (result.insertedId) {
+        
+        alert("Yehhh , You are added")
+        reset()
+      }});
+        
+    
+    };
 
-  // set Details
+   
+// set Details
   useEffect(() => {
     fetch(`https://scary-goblin-02267.herokuapp.com/services/${placeOrderId}`)
-      .then((res) => res.json())
-      .then((data) => setSaveUser(data));
-  }, [placeOrderId]);
+    .then(res=>res.json())
+    .then(data=>setSaveUser(data))
+  },[placeOrderId])
 
+  // console.log(saveUser.name);
+  // console.log(saveUser.price);
   return (
     <div className="row container p-5">
       <div className="col-lg-6 col-sm-12">
         <h2>Confirm Your Order...</h2>
         <h1>To</h1>
-        <p className="booking-section">
-          <u>{saveUser?.name}</u>
-        </p>
-        <p>{saveUser?.details}</p>
+        <p className="booking-section"><u>{saveUser?.name}</u></p>
+        <p>{saveUser?.details}</p> 
       </div>
       <div className="col-lg-6 col-sm-12">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -72,17 +72,20 @@ const Booking = () => {
           <input
             type="text"
             className="p-2 m-2"
-            defaultValue={saveUser?.name}
+            defaultValue={saveUser.name}
+            
             // placeholder="+880"
             {...register("name")}
           />
+         
 
           <input
             type="number"
             className="p-2 m-2"
-            defaultValue={saveUser.price}
+            defaultValue={saveUser.price }
             {...register("price")}
           />
+          
           <br />
 
           <input
@@ -102,6 +105,7 @@ const Booking = () => {
         </form>
       </div>
     </div>
+
   );
 };
 
