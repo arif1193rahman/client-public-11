@@ -1,6 +1,6 @@
 import React from "react";
-import useAuth from "./Hooks/useAuth";
 import { useHistory, useLocation } from "react-router-dom";
+import useAuth from "./Hooks/useAuth";
 import './LogIn.css';
 
 const LogIn = () => {
@@ -9,16 +9,16 @@ const LogIn = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const url = location.state?.from || "/"
+  const url = location.state?.from || "/";
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((res) => {
         setUser(res.user)
-        history.push(url)
+        history.push(url);
       })
       .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(false))
   };
 
   
